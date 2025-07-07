@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
 import time
 import requests
@@ -460,6 +461,7 @@ def get_agmarknet_data(state, commodity, market):
         return get_data_alternative_method(state, commodity, market)
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods=['GET'])
 def homePage():
